@@ -147,7 +147,7 @@ classdef RES2DXYZ
                 % absent, the difference block header gets skipped.
                 if sum(contains(strsplit(tline),["mid-point","spacing"])) == 2
                     obj.generalFormatFlag = 0;
-                    disp(['General array format not used.']);
+                    disp('General array format not used.');
                 end
                 tline = fgets(fid);
                 
@@ -205,7 +205,7 @@ The following section gives the surface topographical data.
             while contains(tline,'/')
                 if sum(contains(strsplit(tline),["mid-point","spacing"])) == 2
                     obj.generalFormatFlag = 0;
-                    disp(['General array format not used.']);
+                    disp('General array format not used.');
                 end
                 tline = fgets(fid);
             end
@@ -390,7 +390,7 @@ The following section gives the surface topographical data.
                     y3 = obj.CellBlockCoordsTopo(:,7);
                     x4 = obj.CellBlockCoordsTopo(:,8);
                     y4 = obj.CellBlockCoordsTopo(:,9);
-                    p = patch([x1,x2,x3,x4]',[y1,y2,y3,y4]',vals,'AlignVertexCenters','on');
+                    patch([x1,x2,x3,x4]',[y1,y2,y3,y4]',vals,'AlignVertexCenters','on');
                 else
                     x1 = obj.CellBlockCoordsNoTopo(:,2);
                     y1 = -obj.CellBlockCoordsNoTopo(:,3);
@@ -482,17 +482,17 @@ The following section gives the surface topographical data.
                 
                 % Blank cells on sides with data (the weird side-cells)
                 a = isnan(newVals());
-                for i = 2:length(newVals);
+                for i = 2:length(newVals)
                     if a(i)
                         newVals(i-1) = nan;
                     end
                 end
                 % Check the number of cells is as expected.
                 xTest = round(obj.CellBlockCoordsTopo(:,2)./unitSpacing).*unitSpacing;
-                if ~any(newX1 == xTest);
-                    disp(['Number of cells matches dataset.']);
+                if ~any(newX1 == xTest)
+                    disp('Number of cells matches dataset.');
                 else
-                    disp(['Number of cells do not match!']);
+                    disp('Number of cells do not match!');
                 end
                 
                 x1 = newX1();
@@ -583,7 +583,7 @@ The following section gives the surface topographical data.
                 ylabel('Psuedo-depth','FontSize',18);
                 xlabel('Midpoint','FontSize',18);
                 cb2 = colorbar('eastoutside');
-                cb2.Label.String = ['\Omega_{app}'];
+                cb2.Label.String = '\Omega_{app}';
                 dfTicks = cb2.Ticks;
                 dfTicks(end+1) = max(caxis);
                 dfTicks = [min(caxis),dfTicks];
