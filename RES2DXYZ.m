@@ -586,7 +586,7 @@ The following section gives the surface topographical data.
                 cb2.Label.String = ['\Omega_{app}'];
                 dfTicks = cb2.Ticks;
                 dfTicks(end+1) = max(caxis);
-                dfTicks = [min(caxis),dfTicks]
+                dfTicks = [min(caxis),dfTicks];
                 cb2.Ticks = dfTicks;
                 cb2.TickLabels = round((10.^dfTicks),2,'significant');
                 cb2.TickDirection = 'out';
@@ -663,6 +663,7 @@ The following section gives the surface topographical data.
                     'verticalalignment', 'bottom', 'fitboxtotext', 'on', ...
                     'linestyle','none','FontSize', 15);
         end
+        
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %% Legacy plotting method (slow)
         function [vq_p] = plotModelTopo(obj,dx,dy, values, nContours, showCells, resoblank, blankFlag)

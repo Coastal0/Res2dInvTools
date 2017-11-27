@@ -41,6 +41,7 @@ To-Do List;
         - Waste time implmeneting non-general array structure.
         - Expand commentary.
         - Speed-up data-loading.
+        - Add export to SEG-y function
 %}
 
 %% Load Data
@@ -61,29 +62,30 @@ for i = 1:numel(fid)
     vals = [];
     vals(:,1) = log10(1000.*r.Conductivity);
     vals(:,2) = log10(r.Resolution);
-    vals(:,3) = log10(r.ResolutionPerUnitArea);
+%     vals(:,3) = log10(r.ResolutionPerUnitArea);
     
     cbarLabels = {['Conductivity (mS/m)'],...
         ['Resolution'], ...
         ['Resolution Per Unit Area']};
-    caxislims = {[-0,2.5]; ... % Conductivity (log scale)
+    caxislims = {[-0,2]; ... % Conductivity (log scale)
                  [-4,-0.969]; ... % Resolution (log scale)
                  [-4,-0.969]; ... % resolution p/unit area (log)
                  };
     %% Plot (New Method)
     titles.plot = fid{i};
     for j = 1:size(vals,2)
-        set(gcf, 'visible', 'off') % Turn figure pop-up on/off
 %         figure('Color',[1 1 1],'Position',[0,0,1920,1080]);
         figure('Color',[1 1 1],'Position',[0,0,1920,800]);
-        
+        set(gcf, 'visible', 'off') % Turn figure pop-up on/off
+
         plotModel_v2(r,vals(:,j),titles);
         
         % Colorbar
         cb2 = colorbar('southoutside');
         titles.cbar = cbarLabels{j};
         cb2.Label.String = {titles.cbar};
-        caxis(caxislims{j})
+%         caxis(caxislims{j})
+        caxis('auto')
         dfTicks = cb2.Ticks;
         dfTicks(end+1) = max(caxis);
         cb2.TickLabels = round((10.^dfTicks),2,'significant');
