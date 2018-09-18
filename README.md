@@ -3,6 +3,8 @@ A set of matlab-based tools for batch and visualisation of res2dinv ERI data.
 RES2DINV_BATCHMANKER.m
 This script makes batch files for res2dinv from a set of *.dat and *.ivp files.
 
+LATEST VERSION is 1.0d - I will upload ASAP but if you need before then, please email me. [18/09/2018]
+
 runMe_ver_1_0a.m
 This script reads the *.XYZ output from Res2dinv and displays the resulting grids.
 
