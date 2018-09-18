@@ -1,6 +1,6 @@
 # Res2dInvTools
 A set of matlab-based tools for batch and visualisation of res2dinv ERI data.
-RES2DINV_BATCHMANKER.m
+RES2DINV_BATCHMAKER.m
 This script makes batch files for res2dinv from a set of *.dat and *.ivp files.
 
 LATEST VERSION is 1.0d - I will upload ASAP but if you need before then, please email me. [18/09/2018]
